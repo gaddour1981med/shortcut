@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\EnsureMaxLinks;
+use App\Http\Middleware\EnsureMaxDBLinks;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,8 @@ Route::prefix('{locale}')
                                                                                              ->middleware(EnsureMaxLinks::class); 
 
         Route::post('/links/add/save', [App\Http\Controllers\LinksController::class, 'save']) ->name('links.add.save')
-                                                                                              ->middleware(EnsureMaxLinks::class); ;
+                                                                                              ->middleware([EnsureMaxLinks::class,
+                                                                                                            EnsureMaxDBLinks::class]);
 
         
         Route::get('/links/{link_id}/delete', [App\Http\Controllers\LinksController::class, 'delete']) ->name('links.delete');

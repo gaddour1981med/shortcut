@@ -43,16 +43,14 @@ class LinksController extends Controller
          'url' => ['bail','required','string', 'max:255',new ValidURL()]
         ]);              
                     
-        try {    
-                
-                      
+        try {   
+              
             $link=new Link();
             $link->url=$request->all()["url"];
             $link->shortcut=Str::random(6);
             $link->user_id=Auth::id();
             $link->created_at=strtotime(now());
             $link->save();
-
              
         } catch (\Exception $e) {
                 
@@ -64,6 +62,7 @@ class LinksController extends Controller
         return  Redirect::route('home')
                         ->with('status', __('Link Converted successfully'));
     }
+
 
 
 
