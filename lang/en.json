@@ -6,5 +6,10 @@
     "Forgot Your Password?":"Forgot Your Password?",
     "Register":"Register",
     "Confirm Password":"Confirm Password",
-    "Name":"Votre Nom"
+    "Name":"Name",
+    "No link added":"No link added.",
+    "Click Button To Add New Link":"To add a new link, please click on the add button.",
+    "Add":"Add New Link",
+    "URL to convert":"URL to convert",
+    "Convert":"Convert"
 }

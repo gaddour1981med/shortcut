@@ -30,4 +30,8 @@ Route::prefix('{locale}')
 
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+        Route::get('/links/add/form', [App\Http\Controllers\LinksController::class, 'form']) ->name('links.add.form');
+
+        Route::post('/links/add/save', [App\Http\Controllers\LinksController::class, 'save']) ->name('links.add.save');
+
 });

@@ -6,5 +6,10 @@
     "Forgot Your Password?":"Mot de passe oublié?",
     "Register":"Créer un compte",
     "Confirm Password":"Confirmer le mot de passe",
-    "Name":"Votre Nom"
+    "Name":"Votre Nom",
+    "No link added":"Aucun lien trouvé.",
+    "Click Button To Add New Link":"Pour ajouter un nouveau lien, priére cliquer sur le bouton ajouter.",
+    "Add":"Ajouter Un Lien",
+    "URL to convert":"URL à convertir",
+    "Convert":"Convertir"
 }
