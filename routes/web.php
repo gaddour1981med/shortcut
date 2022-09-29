@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect(app()->getLocale());
 });
+
+Route::prefix('{shortcut}')
+     ->where(['shortcut' => '[0-9a-zA-Z]{6}']) 
+     ->group(function () {
+    Route::get('/', [App\Http\Controllers\LinksController::class, 'redirect'])->name('shortcut');       
+});
+
 
 Route::prefix('{locale}')
        ->where(['locale' => '[a-zA-Z]{2}'])

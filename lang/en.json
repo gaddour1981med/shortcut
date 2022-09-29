@@ -18,5 +18,6 @@
     "Url":"Url",
     "ShortCut":"Shortcut",
     "Actions":"Actions",
-    "Delete":"Delete"
+    "Delete":"Delete",
+    "Link Expired":"OOps link expired or not found."
 }

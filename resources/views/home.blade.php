@@ -50,7 +50,7 @@
                                 @foreach($links as $link)
                                 <tr>
                                     <td>{{ $link->url }}</td>
-                                    <td><a href="#" target="_blank"> {{ config('app.url') ."/". $link->shortcut }}</a></td>                                    
+                                    <td><a href="{{ route("shortcut",$link->shortcut) }}" target="_blank"> {{ config('app.url') ."/". $link->shortcut }}</a></td>                                    
                                     <td>{{ $link->created_at }}</td>  
                                     <td><a href="#">{{ __("Delete")}}</a></td>  
                                 </tr>                    
