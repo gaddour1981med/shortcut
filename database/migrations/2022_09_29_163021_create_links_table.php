@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string("shortcut")->nullable(false);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');  
-            $table->timestamps();
+            $table->integer('created_at')->nullable();
+            $table->integer('updated_at')->nullable();
         });
     }
 

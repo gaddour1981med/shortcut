@@ -4,6 +4,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            
+            @if(Session::has('status'))
+              <x-alert class="alert-success"  :message="Session::get('status')"></x-alert> 
+            @endif
+          
+            @if ($errors->db->any())
+            <div class="alert alert-danger">
+               <ul>
+                @foreach ($errors->db->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+               </ul>
+            </div>
+            @endif
+
             <div class="card">   
                 <div class="card-header"> 
                     {{__("Add")}}    
@@ -16,7 +31,7 @@
                         <div class="row mb-3">
                             <label for="domain" class="col-md-4 col-form-label text-md-end">{{ __('URL to convert') }}</label>
                                <div class="col-md-6">                                   
-                               <textarea rows="4"  id="url" name="url" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url') }}" required  autofocus></textarea>
+                               <textarea rows="4"  id="url" name="url" class="form-control @error('url') is-invalid @enderror" name="url" required  autofocus>{{ old('url') }}</textarea>
                                     @error('url')
                                        <span class="invalid-feedback" role="alert">
                                            <strong>{{ $message }}</strong>

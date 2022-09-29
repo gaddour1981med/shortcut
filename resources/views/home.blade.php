@@ -3,16 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
+
+            @if(Session::has('status'))
+            <x-alert class="alert-success"  :message="Session::get('status')"></x-alert> 
+            @endif  
+            
+            @if(Session::has('info'))
+            <x-alert class="alert-secondary"  :message="Session::get('info')"></x-alert> 
+            @endif
+           
+            @if(Session::has('error'))
+            <x-alert class="alert-danger"  :message="Session::get('error')"></x-alert> 
+            @endif
+            
             <div class="card">
               
                 <div class="card-body">
-
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                   
 
                     @if (count($links) > 0)   
                     
@@ -20,10 +28,10 @@
           
                         <div class="table-title">
                             <div class="row col-12">
-                                <div class="col-8"><h2>{{__("txt2")}}</h2></div>
+                                <div class="col-8"><h2>{{__("My Links")}}</h2></div>
                                 <div class="col-4 d-md-flex justify-content-end">    
                                     <div class="d-grid d-md-block flex-wrap">
-                                     <a href="{{route('admin.home.add.form')}}" class="btn btn-primary"><i class="fa fa-plus"></i> {{__('txt7')}}</a>
+                                     <a href="{{route('links.add.form')}}" class="btn btn-primary"><i class="fa fa-plus"></i> {{__('Add')}}</a>
                                     </div>                                   
                                 </div>
                             </div>
@@ -31,20 +39,20 @@
                         <br>
                         <table class="table table-striped table-border ">
                             <thead>                   
-                                <tr>
-                                    <th>{{ __('Name')}}</th>
-                                    <th>{{ __('txt9')}}</th>                  
-                                    <th>{{ __('txt11')}}</th>                                   
-                                    <th>{{ __('txt12')}}</th>
+                                <tr>                                    
+                                    <th>{{ __('Url')}}</th>                  
+                                    <th>{{ __('ShortCut')}}</th>   
+                                    <th>{{ __('Date')}}</th>                                
+                                    <th>{{ __('Actions')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($tasks  as $task)
+                                @foreach($links as $link)
                                 <tr>
-                                    <td></td>
-                                    <td></td>                                    
-                                    <td></td>  
-                                    <td></td>  
+                                    <td>{{ $link->url }}</td>
+                                    <td><a href="#" target="_blank"> {{ config('app.url') ."/". $link->shortcut }}</a></td>                                    
+                                    <td>{{ $link->created_at }}</td>  
+                                    <td><a href="#">{{ __("Delete")}}</a></td>  
                                 </tr>                    
                                 @endforeach    
                             </tbody>

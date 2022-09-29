@@ -11,5 +11,12 @@
     "Click Button To Add New Link":"To add a new link, please click on the add button.",
     "Add":"Add New Link",
     "URL to convert":"URL to convert",
-    "Convert":"Convert"
+    "Convert":"Convert",
+    "Invalid Url":"Invalid Url",
+    "Link Converted successfully":"Link Converted successfully",
+    "My Links":"My Links",
+    "Url":"Url",
+    "ShortCut":"Shortcut",
+    "Actions":"Actions",
+    "Delete":"Delete"
 }

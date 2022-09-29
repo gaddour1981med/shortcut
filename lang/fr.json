@@ -11,5 +11,11 @@
     "Click Button To Add New Link":"Pour ajouter un nouveau lien, priére cliquer sur le bouton ajouter.",
     "Add":"Ajouter Un Lien",
     "URL to convert":"URL à convertir",
-    "Convert":"Convertir"
+    "Convert":"Convertir",
+    "Invalid Url":"URL Invalide",
+    "Link Converted successfully":"Lien Converti avec succés",
+    "My Links":"Mes Liens",
+    "ShortCut":"Raccourcie",
+    "Actions":"Actions",
+    "Delete":"Supprimer"
 }
