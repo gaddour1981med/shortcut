@@ -18,5 +18,7 @@
     "ShortCut":"Raccourcie",
     "Actions":"Actions",
     "Delete":"Supprimer",
-    "Link Expired":"OOps lien expiré ou introuvable."
+    "Link Expired":"OOps lien expiré ou introuvable.",
+    "Max Allowed Links":"Le nombre maximum de liens que vous pouvez ajouter: :n",
+    "Link Deleted successfully":"Lien supprimé avec succés"
 }

@@ -19,5 +19,7 @@
     "ShortCut":"Shortcut",
     "Actions":"Actions",
     "Delete":"Delete",
-    "Link Expired":"OOps link expired or not found."
+    "Link Expired":"OOps link expired or not found.",
+    "Max Allowed Links":"The maximum number of links you can add is: :n",
+    "Link Deleted successfully":"Link Deleted successfully"
 }

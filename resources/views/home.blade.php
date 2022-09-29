@@ -29,10 +29,12 @@
                         <div class="table-title">
                             <div class="row col-12">
                                 <div class="col-8"><h2>{{__("My Links")}}</h2></div>
-                                <div class="col-4 d-md-flex justify-content-end">    
+                                <div class="col-4 d-md-flex justify-content-end">  
+                                    @if (count($links) < Config::get("links.max_user_links"))  
                                     <div class="d-grid d-md-block flex-wrap">
                                      <a href="{{route('links.add.form')}}" class="btn btn-primary"><i class="fa fa-plus"></i> {{__('Add')}}</a>
-                                    </div>                                   
+                                    </div> 
+                                    @endif                                  
                                 </div>
                             </div>
                         </div>
@@ -52,7 +54,7 @@
                                     <td>{{ $link->url }}</td>
                                     <td><a href="{{ route("shortcut",$link->shortcut) }}" target="_blank"> {{ config('app.url') ."/". $link->shortcut }}</a></td>                                    
                                     <td>{{ $link->created_at }}</td>  
-                                    <td><a href="#">{{ __("Delete")}}</a></td>  
+                                    <td><a href="{{ route("links.delete",$link->id)}}">{{ __("Delete")}}</a></td>  
                                 </tr>                    
                                 @endforeach    
                             </tbody>

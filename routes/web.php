@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\EnsureMaxLinks;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -38,8 +39,12 @@ Route::prefix('{locale}')
 
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-        Route::get('/links/add/form', [App\Http\Controllers\LinksController::class, 'form']) ->name('links.add.form');
+        Route::get('/links/add/form', [App\Http\Controllers\LinksController::class, 'form']) ->name('links.add.form')
+                                                                                             ->middleware(EnsureMaxLinks::class); ;
 
         Route::post('/links/add/save', [App\Http\Controllers\LinksController::class, 'save']) ->name('links.add.save');
+
+        
+        Route::get('/links/{link_id}/delete', [App\Http\Controllers\LinksController::class, 'delete']) ->name('links.delete');
 
 });

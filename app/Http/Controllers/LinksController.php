@@ -65,4 +65,20 @@ class LinksController extends Controller
                         ->with('status', __('Link Converted successfully'));
     }
 
+
+
+    public function delete(Request $request){ 
+            $id=isset($request->link_id)?intval($request->link_id):0;            
+            if($id>0 && Link::where('id',$id)
+                    ->where("user_id",Auth::id())
+                    ->delete()>0){
+
+               return  Redirect::route('home')
+                    ->with('status', __('Link Converted successfully'));         
+            }else{
+
+               return  Redirect::route('home');
+            }  
+    }
+
 }
