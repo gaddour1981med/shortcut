@@ -61,7 +61,7 @@ class LinksController extends Controller
                     ->delete()>0){
 
                return  Redirect::route('home')
-                    ->with('status', __('Link Converted successfully'));         
+                    ->with('status', __('Link Deleted successfully'));         
             }else{
 
                return  Redirect::route('home');

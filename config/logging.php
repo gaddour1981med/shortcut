@@ -117,6 +117,18 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'accesslinks'=>[
+            'driver' => 'daily',
+            'path' => storage_path('logs/access-links.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+            'days' => 14,
+            /*'formatter' => Monolog\Formatter\LineFormatter::class,
+            'formatter_with' => [
+            'dateFormat' => 'Y-m-d H:i:s',
+            'format' =>  '[%datetime%] %channel%.%level_name%: %context% '."\n"
+            ],*/
+        ],
     ],
 
 ];
