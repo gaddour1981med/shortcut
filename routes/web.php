@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::prefix('{shortcut}')
      ->where(['shortcut' => '[0-9a-zA-Z]{6}']) 
      ->group(function () {
-    Route::get('/', [App\Http\Controllers\LinksController::class, 'redirect'])->name('shortcut');       
+    Route::get('/',App\Http\Controllers\ShortcutController::class)->name('shortcut');       
 });
 
 

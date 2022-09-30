@@ -18,18 +18,6 @@ class LinksController extends Controller
 
 
 
-    public function redirect(Request $request){
-        $shortcut=Link::where("shortcut","=",$request->shortcut)
-                     ->first();
-        if($shortcut){
-            return redirect($shortcut->url);
-        }   
-                  
-        return view("links.expired");
-    }
-
-
-
 
     public function form(Request $request){
       return view("links.add");
