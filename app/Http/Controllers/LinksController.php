@@ -55,7 +55,9 @@ class LinksController extends Controller
 
 
     public function delete(Request $request){ 
+        
             $id=isset($request->link_id)?intval($request->link_id):0;            
+            
             if($id>0 && Link::where('id',$id)
                     ->where("user_id",Auth::id())
                     ->delete()>0){

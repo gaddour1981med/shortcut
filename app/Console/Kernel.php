@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected function schedule(Schedule $schedule)
-    {
-        // $schedule->command('inspire')->hourly();
+    {        
+        /** use cron to delete all links old then 1 day */
         $schedule->call(function () {
             Link::where("created_at","<",strtotime('-1 day'))->delete();                  
         })->daily();
