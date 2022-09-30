@@ -20,19 +20,37 @@ class UserCanDeleteLinkTest extends TestCase
      */
     public function test_user_can_delete_own_links()
     {
-        /** add new link */
-        $user = User::factory()->create();
-        $link= Link::factory()->create([
-             'user_id' =>$user->id,
-        ]);
+        /** add new link */        
+        $link= Link::factory()->create();
+
         /** call http delete with api  */
-        $this->actingAs($user)
+        $this->actingAs($link->user)
              ->withSession(['banned' => false])
              ->get("/en/links/$link->id/delete");
 
         /** check that record link is deleted */
         $this->assertDatabaseMissing('links', [
             'id' => $link->id
+        ]);
+    }
+
+
+    public function test_user_can_not_delete_links_of_others()
+    {
+        /** add new user */
+        $user=User::factory()->create();
+
+        /** add new link by another user */      
+        $link= Link::factory()->create();
+
+        /** call http delete with api  */
+        $this->actingAs($user)
+             ->withSession(['banned' => false])
+             ->get("/en/links/$link->id/delete");
+
+        /** check that record link is deleted */
+        $this->assertDatabaseHas('links', [
+              'id' => $link->id
         ]);
     }
 }
